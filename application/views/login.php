@@ -73,8 +73,7 @@ if ($this->session->flashdata('alert') == TRUE) {
                     <h4 class="modal-title"><?php echo $msg['title']; ?></h4>
                 </div>
                 <div class="modal-body">
-
-
+                    <?php echo $msg['msg']; ?>
                 </div>
                 <div class="modal-footer">
                     <button data-dismiss="modal"
@@ -88,7 +87,7 @@ if ($this->session->flashdata('alert') == TRUE) {
     <!-- modal -->
     <?php
 }
-?>
+?>  
 
 <div class="login-panel panel panel-default login-form">
 

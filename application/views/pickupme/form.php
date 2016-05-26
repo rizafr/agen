@@ -176,6 +176,12 @@
                         </div>
                     </div>
                     <hr />
+                    <div class="col-md-3">
+                        <div class="alert alert-info alert-price-info" style="display:none">
+                          <strong>Harga</strong> 
+                          Rp. 25.000
+                        </div>
+                    </div>
                     <button class="btn btn-primary nextBtn btn-lg pull-right ml5" type="button" >Next</button>
                     <button class="btn btn-info btn-lg pull-right" type="button" data-toggle="modal" data-target="#modalPrice">Cek Harga</button>
                 </div>
@@ -204,13 +210,20 @@
           </div>
           <div class="modal-body">
 
-              Rp 25000
+              Rp 25.000 ,-
 
           </div>
           <div class="modal-footer">
-              <button data-dismiss="modal" class="btn <?php echo ($msg['status'] == 0 ? 'btn-danger' : 'btn-primary'); ?>" type="button">Close</button>
+              <button data-dismiss="modal" class="btn <?php echo ($msg['status'] == 0 ? 'btn-danger' : 'btn-primary'); ?> btn-close-message" type="button">Close</button>
           </div>
       </div>
   </div>
 </div>
         <!-- modal -->
+
+<script type="text/javascript">
+    $('.btn-close-message').on( "click", function() {
+        console.log('click');
+        $('.alert-price-info').show();
+    });
+</script>

@@ -84,8 +84,6 @@ error_reporting(0);
 
   <!-- container section start -->
   <section id="container">
-     
-      
       <header class="header dark-bg">
             <!--<div class="toggle-nav">
                 <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
@@ -143,6 +141,34 @@ error_reporting(0);
       
       <!--main content start-->
       <section id="main-content-agen">
+
+          <?php
+          if ($this->session->flashdata('alert') == TRUE) {
+              $msg = $this->session->flashdata('alert');
+              ?>
+              <!-- Modal -->
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                   aria-hidden="true">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                              <h4 class="modal-title"><?php echo $msg['title']; ?></h4>
+                          </div>
+                          <div class="modal-body">
+                            <?php echo $msg['msg']; ?>
+                          </div>
+                          <div class="modal-footer">
+                            <button data-dismiss="modal" class="btn <?php echo($msg['status'] == 0 ? 'btn-danger' : 'btn-primary'); ?>" type="button">Close
+                            </button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- modal -->
+              <?php
+          }
+          ?>
           <section class="wrapper">            
               <!--overview start-->
 			
@@ -182,7 +208,7 @@ error_reporting(0);
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
 	<script src="<?php echo base_url(); ?>js/jquery.dateselector.js"></script>
-    
+
 	<script>
 	$('.dateselector-basic').dateSelector();
 	$('.dateselector-bs').dateSelector({
