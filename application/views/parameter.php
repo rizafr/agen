@@ -22,7 +22,7 @@ else
 	';
 ?>
 <div class="row">
-
+	<?php if ($this->session->userdata('role') == 1) { ?>
 	<div class="col-md-3 col-xs-4">
 		<div class="card">
 			<div class="card-image">
@@ -97,8 +97,20 @@ else
 			</div>
 		</div>
 	</div>
-
-</div>
+<?php } ?>
+<?php if ($this->session->userdata('role') == 2) { ?>
+	<div class="col-md-3 col-xs-4">
+		<div class="card">
+			<div class="card-image">
+            <a href="<?php echo base_url(); ?>order">
+				<img class="img-responsive" src="<?php echo base_url(); ?>img/pic/icon_kirim_src.png">
+				<div class="card-title">Data Order</div>
+			</a>
+			</div>
+		</div>
+	</div>
 <?php
+}
+echo '</div>';
 }
 ?>

@@ -36,71 +36,41 @@ class Pickupme extends CI_Controller
 	function create()
 	{
 		$data = array(
-			'courier_id' => $this->input->post('nip'),
-			'nama' => $this->input->post('name'),
-            'password' => md5($this->input->post('pass1')),
-			'alamat' => $this->input->post('address'),
-			'email' => $this->input->post('email'),
-			'no_hp_courier' => $this->input->post('phone'),
-			//'login_state' => '1',
+			'order_id' => 'order-2221',
+			'customers_id' => 'custid-VIdC4fykGE',
+            'courier_id' => '',
+			'telp_pickup' => '123456789',
+			'telp_delivery' => '323432432',
+			'email_pickup' => 'email@pickup.com',
+			'tarif_id' => '1',
+			'alamat_pickup' => $this->input->post('alamat_pickup'),
+			'alamat_delivery' => $this->input->post('alamat_delivery'),
+			'longlat_pickup' => '-6.895092162135682,107.61902537514652',
+			'longlat_delivery' => '-6.9100467802210614,107.61568670527959',
+			'status_bayar' => 0,
+			'detail_barang' => $this->input->post('detail_barang'),
+			'user_id' => 3
 		);
-		
-		$email = $this->crud_courier->look($this->input->post('email'),'email');
-		$nip = $this->crud_courier->look($this->input->post('nip'),'courier_id');
-		$phone = $this->crud_courier->look($this->input->post('phone'),'no_hp_courier');
-		
-		if($email > 0)
+
+		if(!$this->crud_order->create('orders',$data))
 		{
 			$msg = array(
-				'status' => 0,
-				'title' => 'Email Sama',
-				'msg' => "<strong>Maaf !!!</strong> anda memasukan Email yang sudah ada, tolong masukan Email yang lain.",
+				'status' => 1,
+				'title' => 'Success',
+				'msg' => '<strong>Selamat !!!</strong> anda berhasil memasukan data.',
 			);
 			$this->session->set_flashdata('alert',$msg);
-			redirect("couriers/add_courier");
-		}
-		elseif($nip > 0)
-		{
-			$msg = array(
-				'status' => 0,
-				'title' => 'ID Pengantar Sama',
-				'msg' => "<strong>Maaf !!!</strong> anda memasukan ID Pengantar yang sudah ada, tolong masukan ID Pengantar yang lain.",
-			);
-			$this->session->set_flashdata('alert',$msg);
-			redirect("couriers/add_courier");
-		}
-		elseif($phone > 0)
-		{
-			$msg = array(
-				'status' => 0,
-				'title' => 'No Telp Sama',
-				'msg' => "<strong>Maaf !!!</strong> anda memasukan No Telp yang sudah ada, tolong masukan No Telp yang lain.",
-			);
-			$this->session->set_flashdata('alert',$msg);
-			redirect("couriers/add_courier");
+			redirect("primary");
 		}
 		else
 		{
-			if(!$this->crud_courier->create('couriers',$data))
-			{
-				$msg = array(
-					'status' => 1,
-					'title' => 'Success',
-					'msg' => '<strong>Selamat !!!</strong> anda berhasil memasukan data.',
-				);
-				$this->session->set_flashdata('alert',$msg);
-				redirect("couriers");
-			}
-			else
-			{
-				$msg = array(
-					'status' => 0,
-					'title' => 'Failed',
-					'msg' => "<strong>Maaf !!!</strong> anda gagal memasukan data.",
-				);
-				$this->session->set_flashdata('alert',$msg);
-				redirect("couriers/add_courier");
-			}
+			$msg = array(
+				'status' => 0,
+				'title' => 'Failed',
+				'msg' => "<strong>Maaf !!!</strong> anda gagal memasukan data.",
+			);
+			$this->session->set_flashdata('alert',$msg);
+			redirect("pickupme/add_pickupme");
 		}
 	}
 	

@@ -61,7 +61,7 @@
             </div>
         </div>
     </div>
-    <form role="form" action="<?php echo base_url();?>primary" method="post">
+    <form role="form" action="<?php echo base_url();?>pickupme/create" method="post">
         <div class="panel panel-default">
             <div class="panel-body">
                 <div class="row setup-content" id="step-1">
@@ -74,7 +74,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Alamat pickup</label>
-                                <textarea  class="form-control"></textarea>
+                                <textarea name="alamat_pickup"  class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Alamat detail</label>
@@ -115,7 +115,7 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label">Alamat Tujuan/Penerima</label>
-                            <textarea  class="form-control" required></textarea>
+                            <textarea name="alamat_delivery" class="form-control" required></textarea>
                         </div>
                         <div class="form-group">
                            <label class="control-label">Kota / Kab</label>
@@ -142,7 +142,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="control-label">Jenis Barang</label>
-                            <input  maxlength="100" type="text" required="required" class="form-control" />
+                            <input name="detail_barang" maxlength="100" type="text" required="required" class="form-control" />
                         </div>
                     </div> 
                     <div class="col-md-4">

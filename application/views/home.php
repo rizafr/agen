@@ -92,19 +92,19 @@ error_reporting(0);
             </div>-->
 
             <!--logo start-->
-            <a href="<?php echo base_url(); ?>" class="logo">PT POS INDONESIA</a>
+            <a href="<?php echo base_url(); ?>" class="logo">PT POS INDONESIA |</a>
             <!--logo end-->
 
             <div class="nav search-row" id="top_menu">
                 <!--  search form start -->
-                <!--<ul class="nav top-menu">                    
+                <ul class="nav top-menu">
                     <li>
-                        <form class="navbar-form">
-                            <input class="form-control" placeholder="Search" type="text">
-                        </form>
-                    </li>                    
-                </ul>-->
-                <!--  search form end -->                
+                        <a href="<?php echo base_url()?>primary">
+                            Beranda
+                        </a>
+                    </li>
+                </ul>
+                <!--  search form end -->
             </div>
 
             <div class="top-nav notification-row">                
@@ -182,21 +182,7 @@ error_reporting(0);
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
 	<script src="<?php echo base_url(); ?>js/jquery.dateselector.js"></script>
-
-	<script>
-	$("#checkAll").click(function () {
-		$(".check").prop('checked', $(this).prop('checked'));
-	});
-	
-	$(document).on("click", "input[type='checkbox']", function(){
-    total=0;
-    $("input[type='checkbox']:checked").each(function(){
-        total += parseInt($(this).val())
-    })
-    $("input[name='total']").val(total)
-	})
-	</script>
-	
+    
 	<script>
 	$('.dateselector-basic').dateSelector();
 	$('.dateselector-bs').dateSelector({
@@ -214,25 +200,7 @@ error_reporting(0);
 	</script>
 	
 	
-	<script>
-      $(function() {
-        $('#chosen-select').chosen();
-        $('#chosen-select-deselect').chosen({ allow_single_deselect: true });
-      });
-	  
-	  $('#date1').datetimepicker({
-			formatTime:'H:i',
-			formatDate:'d.m.Y',
-			defaultTime:'00:00',
-		});
-		
-	  $('#date2').datetimepicker({
-			formatTime:'H:i',
-			formatDate:'d.m.Y',
-			defaultTime:'23:59',
-		});
-    </script>
-	
+
 	<script>
 		$(document).ready( function () {
 			$('#bootstrap-table').bdt();

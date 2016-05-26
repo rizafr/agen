@@ -66,7 +66,7 @@ class Primary extends CI_Controller{
                 );
 
                 $this->session->set_userdata($session);
-                
+
                 $this->load->view('home');
             }
     	}
